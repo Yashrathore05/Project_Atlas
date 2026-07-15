@@ -60,7 +60,7 @@ export class AnthropicAdapter implements ILlmAdapter {
     return response;
   }
 
-  public async embed(text: string): Promise<number[]> {
+  public async embed(_text: string): Promise<number[]> {
     throw new Error('Embeddings not supported by Anthropic adapter.');
   }
 }

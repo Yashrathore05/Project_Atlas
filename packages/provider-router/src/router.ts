@@ -57,7 +57,9 @@ export class ProviderRouter implements IProviderRouter {
       status: 'healthy',
       details: {
         activeAdapters: this.adapters.size,
-        registeredFallbacks: this.fallbacks.size
+        registeredFallbacks: this.fallbacks.size,
+        registeredProviders: this.providerRegistry.listProviders().length,
+        registeredModels: this.modelRegistry.listModels().length
       },
       timestamp: new Date()
     };
@@ -115,9 +117,10 @@ export class ProviderRouter implements IProviderRouter {
         correlationId,
         providerId,
         model: modelName,
-        cached: true,
-        usage: cacheHit.usage
-      });
+          cached: true,
+          usage: cacheHit.usage,
+          durationMs: Date.now() - startTime
+        });
 
       return cacheHit;
     }
@@ -215,7 +218,8 @@ export class ProviderRouter implements IProviderRouter {
           model: currentModelName,
           cached: false,
           cost,
-          usage: response.usage
+          usage: response.usage,
+          durationMs: Date.now() - startTime
         });
 
         return response;
@@ -253,7 +257,8 @@ export class ProviderRouter implements IProviderRouter {
             correlationId,
             providerId: currentProviderId,
             model: currentModelName,
-            error: err.message
+            error: err.message,
+            durationMs: Date.now() - startTime
           });
           throw err;
         }
@@ -276,7 +281,7 @@ export class ProviderRouter implements IProviderRouter {
     throw new ProviderError('Request failed after maximum retries', 'MAX_RETRIES_EXCEEDED');
   }
 
-  public async routeEmbedding(providerId: string, modelName: string, text: string): Promise<number[]> {
+  public async routeEmbedding(providerId: string, _modelName: string, text: string): Promise<number[]> {
     const adapter = this.adapters.get(providerId);
     if (!adapter || !adapter.embed) {
       throw new ValidationError(`No embedding adapter found for provider: ${providerId}`, 'EMBEDDING_ADAPTER_NOT_FOUND');

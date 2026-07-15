@@ -73,7 +73,7 @@ export class MockAdapter implements ILlmAdapter {
     return response;
   }
 
-  public async embed(text: string): Promise<number[]> {
+  public async embed(_text: string): Promise<number[]> {
     if (this.shouldFail) {
       throw new ProviderError(`Provider request failed: ${this.errorCode}`, this.errorCode);
     }

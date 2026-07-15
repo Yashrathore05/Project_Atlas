@@ -835,7 +835,7 @@ export const AtlasProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           lessonsLearned: sharedContext.keyDecisions,
           metrics: {
             ...m.metrics,
-            stepsCompleted: finishedPlan.tasks.filter(t => t.status === 'completed').length,
+            stepsCompleted: finishedPlan.tasks.filter((t: { status: string }) => t.status === 'completed').length,
             totalSteps: finishedPlan.tasks.length,
             currentStep: `Mission ${finishedPlan.status}`,
             runtimeMs: Date.now() - m.createdAt.getTime()

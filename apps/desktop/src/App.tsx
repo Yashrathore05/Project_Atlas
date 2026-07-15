@@ -3174,7 +3174,7 @@ export const App: React.FC = () => {
                 <div>
                   <span style={{ color: 'var(--text-muted)', display: 'block' }}>CAPABILITY TAGS</span>
                   <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '4px' }}>
-                    {activeAgent.capabilities.map(c => (
+                    {activeAgent.capabilities.map((c: string) => (
                       <span key={c} style={{ background: 'var(--bg-active)', padding: '2px 6px', borderRadius: '4px', fontSize: '10px' }}>{c}</span>
                     ))}
                   </div>
