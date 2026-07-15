@@ -1,0 +1,28 @@
+{
+  "name": "@atlas/provider-router",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@atlas/contracts": "*",
+    "@atlas/domain": "*",
+    "@atlas/errors": "*",
+    "@atlas/logger": "*",
+    "@atlas/metrics": "*",
+    "@atlas/provider-registry": "*",
+    "@atlas/model-registry": "*",
+    "@atlas/provider-health": "*",
+    "@atlas/provider-cache": "*",
+    "@atlas/provider-adapters": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}

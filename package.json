@@ -1,0 +1,21 @@
+{
+  "name": "atlas-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "bootstrap": "npm install",
+    "dev:api": "npm run dev --workspace=@apps/server",
+    "dev:server": "npm run dev --workspace=@apps/server",
+    "dev:desktop": "npm run dev --workspace=apps/desktop",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:desktop\"",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

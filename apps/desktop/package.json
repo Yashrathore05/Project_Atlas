@@ -1,0 +1,45 @@
+{
+  "name": "@apps/desktop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@atlas/agent-communication": "*",
+    "@atlas/agent-registry": "*",
+    "@atlas/agent-runtime": "*",
+    "@atlas/capability-engine": "*",
+    "@atlas/context-engine": "*",
+    "@atlas/contracts": "*",
+    "@atlas/domain": "*",
+    "@atlas/errors": "*",
+    "@atlas/logger": "*",
+    "@atlas/metrics": "*",
+    "@atlas/model-registry": "*",
+    "@atlas/provider-cache": "*",
+    "@atlas/provider-health": "*",
+    "@atlas/provider-registry": "*",
+    "@atlas/provider-router": "*",
+    "@atlas/task-orchestrator": "*",
+    "@supabase/supabase-js": "^2.109.0",
+    "@tauri-apps/api": "^1.6.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.378.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "reactflow": "^11.11.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^29.1.1",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10"
+  }
+}
