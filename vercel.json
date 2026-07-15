@@ -1,7 +1,7 @@
 {
   "installCommand": "npm ci",
-  "buildCommand": "npm run build --workspace=@apps/desktop",
-  "outputDirectory": "apps/desktop/dist",
+  "buildCommand": "npm run build:web",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/:path*",
