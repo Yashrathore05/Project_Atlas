@@ -12,6 +12,7 @@
     "dev:server": "npm run dev --workspace=@apps/server",
     "dev:desktop": "npm run dev --workspace=apps/desktop",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:desktop\"",
+    "build:desktop-app": "npm run tauri:build --workspace=@apps/desktop",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces"
   },

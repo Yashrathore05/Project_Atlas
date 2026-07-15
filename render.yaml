@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: atlas-api
+    env: docker
+    dockerfilePath: ./apps/server/Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8787
+      - key: ATLAS_REQUIRE_AUTH
+        value: true
+      - key: ATLAS_TERMINAL_ENABLED
+        value: true
+      - key: ATLAS_WORKSPACE_ROOT
+        value: /data/atlas-workspaces
+      - key: ATLAS_ALLOWED_ORIGINS
+        sync: false
+      - key: SUPABASE_JWKS_URL
+        sync: false
+      - key: SUPERMEMORY_API_KEY
+        sync: false
+
+  - type: web
+    name: atlas-web
+    env: static
+    buildCommand: npm ci && npm run build --workspace=@apps/desktop
+    staticPublishPath: apps/desktop/dist
+    autoDeploy: true
+    envVars:
+      - key: VITE_ATLAS_API_URL
+        sync: false
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      - key: VITE_ATLAS_OPENROUTER_API_KEY
+        sync: false

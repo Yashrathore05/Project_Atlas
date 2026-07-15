@@ -177,6 +177,8 @@ npm run build --workspace=@apps/server
 
 Atlas should be hosted as two services.
 
+Full hosting and desktop packaging instructions are in [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ### 1. Frontend
 
 Host `apps/desktop` as a Vite static app on Vercel, Netlify, Cloudflare Pages, or any static host.

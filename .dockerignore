@@ -1,0 +1,14 @@
+node_modules
+**/node_modules
+dist
+**/dist
+coverage
+.git
+.env
+.env.*
+!.env.example
+atlas-workspaces
+.agents
+skills-lock.json
+apps/desktop/src-tauri/target
+*.log
